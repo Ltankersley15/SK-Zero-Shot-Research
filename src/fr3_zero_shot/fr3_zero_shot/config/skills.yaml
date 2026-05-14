@@ -1,0 +1,10 @@
+enabled_skills:
+  - observe
+  - pick
+  - place_in
+  - place_relative
+recovery_policy:
+  source_not_visible: reobserve_once
+  top_down_blocked: try_side_grasp
+  container_uncertain: verify_crop_once
+  release_gate_failed: stop

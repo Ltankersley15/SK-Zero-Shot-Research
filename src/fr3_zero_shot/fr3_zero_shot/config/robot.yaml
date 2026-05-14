@@ -1,0 +1,6 @@
+base_frame: world
+ee_link: fr3_hand_tcp
+default_place_orientation: top_down
+gripper:
+  open_m: 0.04
+  close_m: 0.014

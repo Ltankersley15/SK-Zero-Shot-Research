@@ -1,0 +1,11 @@
+geometry_msgs/PoseStamped target
+bool execute
+float64 vel_scale
+float64 acc_scale
+float64 position_tolerance
+float64 orientation_tolerance
+---
+bool success
+int32 moveit_error_code
+int32 controller_error_code
+string message

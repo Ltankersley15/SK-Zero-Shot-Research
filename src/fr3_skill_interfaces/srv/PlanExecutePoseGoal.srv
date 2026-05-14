@@ -1,0 +1,8 @@
+geometry_msgs/PoseStamped target
+bool execute
+float64 position_tolerance
+float64 orientation_tolerance
+---
+bool success
+string message
+float64 planning_time

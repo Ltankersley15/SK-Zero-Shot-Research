@@ -1,0 +1,27 @@
+# ROS 2 / colcon generated outputs
+/build/
+/install/
+/log/
+**/build/
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+**/*.pyc
+**/*.pyo
+**/*.egg-info/
+
+# Local environments and tool state
+/.codex
+/llava_env/
+
+# Large local-only research artifacts
+/Bennett_HRI_Research/
+/Lonnie_Tankersley_Poster_Robotics.jpg
+/mobileclip2_b.ts
+/yoloe-26s-seg.pt
+/yolov8n.pt
+/src/fr3_lvlm_agent/fr3_lvlm_agent/checkpoints/*.pt
+
+# Local vendor experiments not tracked in this workspace
+/src/franka_ros2/
+/src/libfranka/

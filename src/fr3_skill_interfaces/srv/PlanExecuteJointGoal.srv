@@ -1,0 +1,6 @@
+float64[7] joints
+bool execute
+---
+bool success
+string message
+float64 planning_time

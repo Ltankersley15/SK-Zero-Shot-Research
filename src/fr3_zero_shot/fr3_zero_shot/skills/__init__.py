@@ -1,0 +1,2 @@
+"""Fail-closed manipulation skills."""
+

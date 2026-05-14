@@ -1,0 +1,9 @@
+grounding:
+  association_xy_tolerance_m: 0.06
+  near_tolerance_m: 0.11
+grasping:
+  min_keepout_clearance_m: 0.01
+placement:
+  center_tolerance_m: 0.015
+  tcp_xy_tolerance_m: 0.015
+  max_release_offset_m: 0.008

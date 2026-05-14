@@ -1,0 +1,19 @@
+chomp_planner:
+  planning_time_limit: 5.0
+  max_iterations: 200
+  max_iterations_after_collision_free: 5
+  smoothness_cost_weight: 0.1
+  obstacle_cost_weight: 1.0
+  learning_rate: 0.01
+  animate_path: false
+  add_random_perturbation: true
+
+# Group keys must match SRDF group names
+fr3_arm:
+  planner_configs:
+    - CHOMP
+
+fr3_arm_hand:
+  planner_configs:
+    - CHOMP
+

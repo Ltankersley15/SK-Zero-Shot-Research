@@ -1,0 +1,7 @@
+workspace:
+  x_min_m: 0.25
+  x_max_m: 0.75
+  y_min_m: -0.35
+  y_max_m: 0.35
+  z_min_m: 0.0
+  z_max_m: 0.55

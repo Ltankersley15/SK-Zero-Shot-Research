@@ -1,0 +1,10 @@
+float64[7] joints
+bool execute
+float64 allowed_planning_time
+int32 num_planning_attempts
+float64 vel_scale
+float64 accel_scale
+---
+bool success
+string message
+float64 planning_time

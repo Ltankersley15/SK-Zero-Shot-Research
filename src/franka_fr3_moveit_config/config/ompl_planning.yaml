@@ -1,0 +1,35 @@
+planner_configs:
+  RRTConnectkConfigDefault:
+    type: geometric::RRTConnect
+    range: 0.0
+
+  RRTstarkConfigDefault:
+    type: geometric::RRTstar
+    range: 0.0
+    goal_bias: 0.05
+
+  PRMkConfigDefault:
+    type: geometric::PRM
+    max_nearest_neighbors: 10
+
+  PRMstarkConfigDefault:
+    type: geometric::PRMstar
+
+# IMPORTANT:
+# These group keys MUST match your MoveIt SRDF group names.
+# Your skill server uses group_name = "fr3_arm".
+fr3_arm:
+  planner_configs:
+    - RRTConnectkConfigDefault
+    - RRTstarkConfigDefault
+    - PRMkConfigDefault
+    - PRMstarkConfigDefault
+
+# Use this group only if your SRDF defines it. (Recommended for future research)
+fr3_arm_hand:
+  planner_configs:
+    - RRTConnectkConfigDefault
+    - RRTstarkConfigDefault
+    - PRMkConfigDefault
+    - PRMstarkConfigDefault
+
