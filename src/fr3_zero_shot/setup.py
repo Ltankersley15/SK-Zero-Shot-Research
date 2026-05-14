@@ -32,6 +32,7 @@ setup(
             "zero_shot_live_pick_place = fr3_zero_shot.live_pick_place:main",
             "zero_shot_live_pick_place_sequence = fr3_zero_shot.live_pick_place_sequence:main",
             "zero_shot_live_stack_cubes = fr3_zero_shot.live_stack_cubes:main",
+            "zero_shot_command_router = fr3_zero_shot.live_command_router:main",
         ],
     },
 )

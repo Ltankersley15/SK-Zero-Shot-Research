@@ -120,24 +120,40 @@ ros2 launch fr3_bringup fr3_isaac_moveit_bringup.launch.py \
   fjt_goal_tolerance_rad:=0.10
 ```
 
-Wait for `FR3SkillServer up. Ready.` before running tests.
+Wait for `FR3SkillServer up. Ready.` and for the command GUI window to appear before sending live tasks.
 
-## Run Tests In Isaac
+## Run Commands From The GUI
 
-All live commands should be run from a terminal that has sourced both ROS and the workspace:
+The bringup launch starts the natural-language command GUI and a command router by default. Type commands directly into the GUI and press `Send`; the router selects the matching live Isaac routine and streams the plan, status, and result back into the GUI panels.
+
+Supported command examples:
+
+```text
+pick up the blue cube
+pick up the blue cube and place it in the cup
+put the large red cube, blue cube, and yellow cubes all in the cup
+stack the yellow on the blue and then the small red on the yellow
+pick up the partially occluded green cube without touching the cup
+```
+
+To bring up MoveIt without the GUI/router, pass:
 
 ```bash
-cd ~/ws_moveit2
-source /opt/ros/jazzy/setup.bash
-source install/setup.bash
+enable_command_gui:=false enable_command_router:=false
 ```
+
+Each live command emits a structured result in the GUI. Treat terminal or GUI success as insufficient by itself: for validation, also inspect the Isaac GUI or saved screenshots and confirm the object state, cup state, and gripper retention.
+
+## Debug CLI Entry Points
+
+The direct CLI commands remain available for debugging from a sourced terminal. The GUI should be the normal workflow.
 
 Visible cube pickup:
 
 ```bash
 ros2 run fr3_zero_shot zero_shot_live_pick \
+  "pick up the blue cube" \
   --execute \
-  --color blue \
   --position-tolerance 0.025 \
   --orientation-tolerance 0.45
 ```
@@ -180,8 +196,6 @@ ros2 run fr3_zero_shot zero_shot_live_green_occluded_pick \
   --position-tolerance 0.035 \
   --orientation-tolerance 0.55
 ```
-
-Each live command emits a JSON result on stdout. Treat terminal success as insufficient by itself: for validation, also inspect the Isaac GUI or saved screenshots and confirm the object state, cup state, and gripper retention.
 
 ## Offline Unit Tests
 

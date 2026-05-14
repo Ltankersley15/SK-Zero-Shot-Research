@@ -40,6 +40,8 @@ def generate_launch_description():
     gripper_joint_states_topic = LaunchConfiguration("gripper_joint_states_topic")
     gripper_joints = LaunchConfiguration("gripper_joints")
     enable_camera_info_repub = LaunchConfiguration("enable_camera_info_repub")
+    enable_command_gui = LaunchConfiguration("enable_command_gui")
+    enable_command_router = LaunchConfiguration("enable_command_router")
     fjt_rate_hz = LaunchConfiguration("fjt_rate_hz")
     fjt_extra_settle_time = LaunchConfiguration("fjt_extra_settle_time")
     fjt_min_traj_duration = LaunchConfiguration("fjt_min_traj_duration")
@@ -175,6 +177,16 @@ def generate_launch_description():
             "enable_camera_info_repub",
             default_value="true",
             description="Enable only if Isaac does not publish /fr3/d455/*/camera_info topics.",
+        ),
+        DeclareLaunchArgument(
+            "enable_command_gui",
+            default_value="true",
+            description="Start the natural-language command GUI.",
+        ),
+        DeclareLaunchArgument(
+            "enable_command_router",
+            default_value="true",
+            description="Route GUI natural-language commands to live Isaac routines.",
         ),
         DeclareLaunchArgument(
             "fjt_rate_hz",
@@ -498,6 +510,24 @@ def generate_launch_description():
         ],
     )
 
+    command_router = Node(
+        package="fr3_zero_shot",
+        executable="zero_shot_command_router",
+        name="zero_shot_command_router",
+        output="screen",
+        parameters=[{"use_sim_time": use_sim_time}],
+        condition=IfCondition(enable_command_router),
+    )
+
+    command_gui = Node(
+        package="fr3_lvlm_agent",
+        executable="lvlm_command_gui",
+        name="lvlm_command_gui",
+        output="screen",
+        parameters=[{"use_sim_time": use_sim_time}],
+        condition=IfCondition(enable_command_gui),
+    )
+
     # Build camera TF list conditionally (simple: include or don’t include)
     camera_tf_nodes = [
         base_alias_tf,
@@ -524,6 +554,8 @@ def generate_launch_description():
         relay,
         gripper_relay,
         skill_server,
+        command_router,
+        command_gui,
     ]
 
     return LaunchDescription(ld_entities)
