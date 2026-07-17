@@ -215,3 +215,20 @@ Use the Isaac GUI controls in this order:
 4. Wait for ROS topics and `/joint_states` to resume.
 
 Then rerun the ROS command from a sourced terminal.
+
+## Citation
+
+If you use this repository or its associated methods, please cite:
+
+```bibtex
+@inproceedings{tankersley2026embodied,
+  author    = {Lonnie Tankersley and Noorbakhsh Amiri Golilarz and Soroush Korivand},
+  title     = {Embodied Zero-Shot Task Planning via Hardware-Aware LLM--VLM Integration for Grounded Robotic Manipulation},
+  booktitle = {Proceedings of the 2026 International Conference on Machine Learning and Applications (ICMLA)},
+  publisher = {IEEE},
+  year      = {2026}
+}
+
+Plain-text citation:
+
+L. Tankersley, N. Amiri Golilarz, and S. Korivand, “Embodied Zero-Shot Task Planning via Hardware-Aware LLM–VLM Integration for Grounded Robotic Manipulation,” in Proceedings of the 2026 International Conference on Machine Learning and Applications (ICMLA), IEEE, 2026.
